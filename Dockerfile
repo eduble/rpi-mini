@@ -55,5 +55,6 @@ RUN stat -c "ls -ld %n; chown %u:%g %n" $(find . -xdev ! -user root -o ! -group 
 FROM scratch
 COPY --from=layered / /
 # Restore ownership of non-root files that may have been lost during copy
+SHELL ["/usr/bin/qemu-arm-static", "-execve", "/bin/bash", "-c"]
 RUN sh .non-root.sh && rm .non-root.sh
 CMD ["/bin/bash"]
