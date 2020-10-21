@@ -1,10 +1,10 @@
 # builder image: generate a base debian directory
 # ----------------------------------------------
-FROM debian:stretch as builder
+FROM debian:buster as builder
 RUN apt-get update && apt-get install -y debootstrap && apt-get clean
 WORKDIR /root
 RUN debootstrap --foreign --no-check-gpg --variant minbase --arch armhf \
-                stretch fs http://mirrordirector.raspbian.org/raspbian
+                buster fs http://mirrordirector.raspbian.org/raspbian
 WORKDIR /root/fs
 # save ownership of non-root and files with special permissions (suid, sgid, sticky)
 RUN stat -c "chown %u:%g %n" $(find . ! -user root -o ! -group root) > .non-root.sh && \

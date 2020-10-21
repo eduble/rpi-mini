@@ -1,7 +1,7 @@
 
-# eduble/rpi-stretch-mini
+# eduble/rpi-mini:latest
 
-Minimal (below 200M), general purpose *Raspbian* stretch *docker image*.
+Minimal (below 200M), general purpose *Raspberry Pi OS* *docker image*.
 
 Among other uses, you could:
 * use it on a raspberry pi equipped with docker.
